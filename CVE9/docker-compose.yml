@@ -1,0 +1,31 @@
+
+services:
+  apache-vulnerable:
+    build: .
+    image: cve9-apache-lab:2.4.68
+    container_name: cve9-apache
+    ports:
+      - "127.0.0.1:8089:80"
+    volumes:
+      - webdav_data:/usr/local/apache2/htdocs/webdav
+      - webdav_locks:/usr/local/apache2/var
+    restart: "no"
+
+  apache-patched:
+    build:
+      context: .
+      dockerfile: Dockerfile.patched
+    image: cve9-apache-lab:2.4.69
+    container_name: cve9-apache-patched
+    ports:
+      - "127.0.0.1:8090:80"
+    volumes:
+      - webdav_patched_data:/usr/local/apache2/htdocs/webdav
+      - webdav_patched_locks:/usr/local/apache2/var
+    restart: "no"
+
+volumes:
+  webdav_data:
+  webdav_locks:
+  webdav_patched_data:
+  webdav_patched_locks:
