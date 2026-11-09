@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<D:propertyupdate xmlns:D="DAV:" xmlns:T="http://example.com/test">
+  <D:set>
+    <D:prop>
+      <T:classification>CONFIDENTIAL</T:classification>
+      <T:owner>INF2005 Security Team</T:owner>
+      <T:demo-code>CVE9-TEST-12345</T:demo-code>
+    </D:prop>
+  </D:set>
+</D:propertyupdate>
